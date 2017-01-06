@@ -1,0 +1,20 @@
+链接：http://blog.csdn.net/easyer2012/article/details/52352951
+
+步骤简单说明：
+1、再打开Terminal输入指令
+cd app/build/intermediates/classes/debug
+2、然后再输入指令
+javah -jni com.wobiancao.ndkjnidemo.ndk.JniUtils
+
+把JniUtils 生成.h文件
+
+3、然后在src/main下新建文件夹jni,把生成的.h文件复制或者剪切到jni文件夹下面去，新建一个c类随便取一个名字，添加代码如下
+////?Created?by?XY?on?16/1/4.//#include?"com_wobiancao_ndkjnidemo_ndk_JniUtils.h"/*?
+*?Class:?????Java_com_wobiancao_ndkjnidemo_ndk_JniUtils?
+*?Method:????getStringFormC?
+*?Signature:?()Ljava/lang/String;?
+*/JNIEXPORT?jstring?JNICALL?Java_com_wobiancao_ndkjnidemo_ndk_JniUtils_getStringFormC
+????????(JNIEnv?*env,?jobject?obj){?
+???return?(*env)->NewStringUTF(env,"这里是来自c的string");
+
+4、把生成的.so文件加入jniLibs 搞定！

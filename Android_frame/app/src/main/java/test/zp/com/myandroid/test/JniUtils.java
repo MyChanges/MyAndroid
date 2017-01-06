@@ -5,7 +5,7 @@ package test.zp.com.myandroid.test;
  */
 public class JniUtils {
     /**
-     * 架子.so文件
+     * so库加载测试
      */
     static  {
         System.loadLibrary("NdkJniDemo");
