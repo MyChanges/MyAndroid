@@ -22,4 +22,11 @@ public class NativeActivity extends BaseActivity {
         mTvShow = (TextView) findViewById(R.id.tv_native_show);
         mTvShow.setText(JniUtils.getStringFormC());
     }
+    @Override
+    protected void initData() {
+    }
+    @Override
+    protected void initView() {
+
+    }
 }
