@@ -2,10 +2,12 @@ package test.zp.com.myandroid.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.TextView;
 
 import test.zp.com.myandroid.R;
 import test.zp.com.myandroid.base.BaseActivity;
+import test.zp.com.myandroid.base.BasePresenter;
 import test.zp.com.myandroid.test.JniUtils;
 
 
@@ -27,6 +29,21 @@ public class NativeActivity extends BaseActivity {
     }
     @Override
     protected void initView() {
+
+    }
+
+    @Override
+    protected void setOnClickLintener() {
+
+    }
+
+    @Override
+    protected BasePresenter loadParesenter() {
+        return null;
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

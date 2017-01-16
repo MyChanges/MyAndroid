@@ -60,7 +60,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
         this.mOrientation = mOrientation;
     }
-
     /**
      * 画横线
      */
@@ -73,7 +72,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             //获得child的布局信息
             final RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int top = child.getBottom() + lp.bottomMargin;
-            final int button = top + mDivider.getIntrinsicHeight();
+            final int button = top + mDivider.getIntrinsicWidth();
             Log.e(TAG, "drawHorizontalLine: mDivider.getIntrinsicHeight():   " + mDivider.getIntrinsicHeight());
             Log.e(TAG, "drawHorizontalLine:   " + "left:  " + left + "    top:    " + top + "    right:   " + right + "    button: " + button);
             mDivider.setBounds(left, top, right, button);
@@ -86,15 +85,18 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
      */
     public void drawVerticalLine(Canvas c, RecyclerView parent) {
         int top = parent.getPaddingTop();
-        int button = parent.getHeight() - parent.getPaddingTop();
+        int bottom = parent.getHeight() - parent.getPaddingBottom();
         final int childCount = parent.getChildCount();
-        for (int i = 0; i < childCount; i++) {
+        for (int i = 0; i < childCount; i++){
             final View child = parent.getChildAt(i);
-            final RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) child.getLayoutParams();
-            final int left = child.getLeft() + lp.rightMargin;
-            final int right = left + mDivider.getIntrinsicWidth();
-            mDivider.setBounds(left, top, right, button);
+            //获得child的布局信息
+            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)child.getLayoutParams();
+            final int left = child.getRight() + params.rightMargin;
+            final int right = left + mDivider.getIntrinsicHeight();
+            Log.e(TAG, "drawVerticalLine:   " + "left:  " + left + "    top:    " + top + "    right:   " + right + "    button: " + bottom);
+            mDivider.setBounds(left, top, right, bottom);
             mDivider.draw(c);
         }
+
     }
 }

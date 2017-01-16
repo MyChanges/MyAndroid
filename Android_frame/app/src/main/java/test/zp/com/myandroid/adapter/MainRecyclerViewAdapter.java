@@ -25,9 +25,11 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     }
     private OnItemClickLitener mOnItemClickLitener;
 
+
     public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
     {
         this.mOnItemClickLitener = mOnItemClickLitener;
+
     }
 
     public interface OnItemClickLitener {
@@ -36,8 +38,8 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e("MainRecyclerViewAdapter", "onCreateViewHolder: 11111111111");
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.main_item, parent, false));
+        Log.e("MainRecyclerViewAdapter", "onCreateViewHolder: 11111111111" +parent);
+        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.main_item, parent,false));
         return holder;
     }
 
