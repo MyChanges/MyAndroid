@@ -21,6 +21,27 @@
         </activity>
         <activity android:name=".activity.NativeActivity"/>
         <activity android:name=".activity.LoginActivity"/>
-    </application>
+        <activity android:name=".activity.JumpActivity"
+            >
+        </activity>
+        <activity
+            android:name=".activity.JumpActivity1"
+            android:launchMode="singleInstance">
 
+        </activity>
+        <activity android:name=".activity.JumpActivity2">
+
+        </activity>
+        <activity android:name=".activity.BroadCaseReceiverActivity">
+
+        </activity>
+
+        <receiver android:name="test.zp.com.myandroid.receiver.MyReceiver">
+            <intent-filter>
+                <action android:name="com.demo.test.action" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".activity.ServiceActivity" />
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
