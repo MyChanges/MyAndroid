@@ -8,8 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import test.zp.com.myandroid.activity.BroadCaseReceiverActivity;
+import test.zp.com.myandroid.activity.JumpActivity;
 import test.zp.com.myandroid.activity.LoginActivity;
 import test.zp.com.myandroid.activity.NativeActivity;
+import test.zp.com.myandroid.activity.ServiceActivity;
 import test.zp.com.myandroid.adapter.MainRecyclerViewAdapter;
 import test.zp.com.myandroid.base.BaseActivity;
 import test.zp.com.myandroid.base.BasePresenter;
@@ -29,7 +32,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        mData = new String[]{"jni调用", "登陆测试", "test2", "test3"};
+        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver","Service"};
     }
 
     @Override
@@ -54,6 +57,15 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 1:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, JumpActivity.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(MainActivity.this, BroadCaseReceiverActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, ServiceActivity.class));
+                        break;
                 }
 
             }

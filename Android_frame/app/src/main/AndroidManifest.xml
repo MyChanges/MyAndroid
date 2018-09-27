@@ -42,6 +42,8 @@
             </intent-filter>
         </receiver>
         <activity android:name=".activity.ServiceActivity" />
+        <service android:name=".service.MyStartService"></service>
+        <service android:name=".service.MyBindService"></service>
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
