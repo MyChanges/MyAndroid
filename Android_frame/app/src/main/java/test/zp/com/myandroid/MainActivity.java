@@ -9,10 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import test.zp.com.myandroid.activity.BroadCaseReceiverActivity;
+import test.zp.com.myandroid.activity.ChartActivity;
+import test.zp.com.myandroid.activity.ClipboardActivity;
+import test.zp.com.myandroid.activity.CustomActivity;
 import test.zp.com.myandroid.activity.JumpActivity;
 import test.zp.com.myandroid.activity.LoginActivity;
 import test.zp.com.myandroid.activity.NativeActivity;
 import test.zp.com.myandroid.activity.ServiceActivity;
+import test.zp.com.myandroid.activity.SharePicActivity;
 import test.zp.com.myandroid.adapter.MainRecyclerViewAdapter;
 import test.zp.com.myandroid.base.BaseActivity;
 import test.zp.com.myandroid.base.BasePresenter;
@@ -32,7 +36,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver","Service"};
+        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver","Service","AndroidChart","customView","sharePic"," clipboard"};
     }
 
     @Override
@@ -65,6 +69,24 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 4:
                         startActivity(new Intent(MainActivity.this, ServiceActivity.class));
+                        break;
+
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, ChartActivity.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, CustomActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, SharePicActivity.class));
+                        break;
+
+                    case 8:
+                        startActivity(new Intent(MainActivity.this,ClipboardActivity.class));
+                        break;
+
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, ClipboardActivity.class));
                         break;
                 }
 
