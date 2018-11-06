@@ -3,6 +3,7 @@ package test.zp.com.myandroid.activity;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import test.zp.com.myandroid.util.ImageUtils;
 public class SharePicActivity extends Activity {
     ImageView aaa ;
     String picPath;
+    private View mLinView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class SharePicActivity extends Activity {
         ImageUtils.layoutView(v,width,height);
         final ScrollView tv = (ScrollView) v.findViewById(R.id.textView);
         aaa = (ImageView) findViewById(R.id.aaa);
+        mLinView = findViewById(R.id.ll_bitmap);
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -82,6 +85,19 @@ public class SharePicActivity extends Activity {
         intent.setComponent(componet);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+            }
+        });
+
+        View v2 = LayoutInflater.from(this).inflate(R.layout.test_view, null, false);
+        final View shareView  = v2.findViewById(R.id.ll_share);
+        ImageUtils.layoutView1(shareView,0,0);
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap bitmap = ImageUtils.view2Bitmap(mLinView);
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    aaa.setImageBitmap(bitmap);
+                }
             }
         });
 

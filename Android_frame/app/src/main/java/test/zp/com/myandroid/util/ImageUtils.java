@@ -2,6 +2,8 @@ package test.zp.com.myandroid.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
@@ -123,6 +125,44 @@ public class ImageUtils {
         }
 //        Toast.makeText(this, "保存成功 " + qrImage.getPath().toString(), Toast.LENGTH_SHORT).show();
         return qrImage.getPath();
+    }
+
+    /**
+     * View to bitmap.
+     *
+     * @param view The view.
+     * @return bitmap
+     */
+    public static Bitmap view2Bitmap(final View view) {
+        if (view == null) return null;
+        Bitmap ret = Bitmap.createBitmap(view.getWidth(),
+                view.getHeight(),
+                Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(ret);
+        view.layout(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null) {
+            bgDrawable.draw(canvas);
+        } else {
+            canvas.drawColor(Color.WHITE);
+        }
+        view.draw(canvas);
+        return ret;
+    }
+
+
+
+    //然后View和其内部的子View都具有了实际大小，也就是完成了布局，相当与添加到了界面上。接着就可以创建位图并在上面绘制了：
+    public static void layoutView1(View v, int width, int height) {
+        // 整个View的大小 参数是左上角 和右下角的坐标
+        v.layout(0, 0, width, height);
+//        int measuredWidth = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY);
+//        int measuredHeight = View.MeasureSpec.makeMeasureSpec(10000, View.MeasureSpec.AT_MOST);
+        /** 当然，measure完后，并不会实际改变View的尺寸，需要调用View.layout方法去进行布局。
+         * 按示例调用layout函数后，View的大小将会变成你想要设置成的大小。
+         */
+        v.measure(0, 0);
+        v.layout(0, 0, v.getMeasuredWidth(), v.getMeasuredHeight());
     }
 
 }
