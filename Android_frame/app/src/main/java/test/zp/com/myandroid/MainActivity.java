@@ -12,6 +12,7 @@ import test.zp.com.myandroid.activity.BroadCaseReceiverActivity;
 import test.zp.com.myandroid.activity.ChartActivity;
 import test.zp.com.myandroid.activity.ClipboardActivity;
 import test.zp.com.myandroid.activity.CustomActivity;
+import test.zp.com.myandroid.activity.DensityActivity;
 import test.zp.com.myandroid.activity.JumpActivity;
 import test.zp.com.myandroid.activity.LoginActivity;
 import test.zp.com.myandroid.activity.NativeActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver","Service","AndroidChart","customView","sharePic"," clipboard"};
+        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver", "Service", "AndroidChart", "customView", "sharePic", " clipboard", "density"};
     }
 
     @Override
@@ -70,7 +71,6 @@ public class MainActivity extends BaseActivity {
                     case 4:
                         startActivity(new Intent(MainActivity.this, ServiceActivity.class));
                         break;
-
                     case 5:
                         startActivity(new Intent(MainActivity.this, ChartActivity.class));
                         break;
@@ -82,12 +82,15 @@ public class MainActivity extends BaseActivity {
                         break;
 
                     case 8:
-                        startActivity(new Intent(MainActivity.this,ClipboardActivity.class));
-                        break;
-
-                    case 9:
                         startActivity(new Intent(MainActivity.this, ClipboardActivity.class));
                         break;
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, DensityActivity.class));
+                        break;
+                    case 10:
+                        startActivity(new Intent(MainActivity.this, DensityActivity.class));
+                        break;
+                    default:
                 }
 
             }
