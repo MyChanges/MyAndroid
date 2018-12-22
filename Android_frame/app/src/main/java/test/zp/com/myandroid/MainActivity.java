@@ -12,6 +12,7 @@ import test.zp.com.myandroid.activity.BroadCaseReceiverActivity;
 import test.zp.com.myandroid.activity.ChartActivity;
 import test.zp.com.myandroid.activity.ClipboardActivity;
 import test.zp.com.myandroid.activity.CustomActivity;
+import test.zp.com.myandroid.activity.CustomViewActivity;
 import test.zp.com.myandroid.activity.DensityActivity;
 import test.zp.com.myandroid.activity.JumpActivity;
 import test.zp.com.myandroid.activity.LoginActivity;
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver", "Service", "AndroidChart", "customView", "sharePic", " clipboard", "density"};
+        mData = new String[]{"jni调用", "登陆测试", "Activity跳转测试", "BroadCaseReceiver", "Service", "AndroidChart", "customView", "sharePic", " clipboard", "density","customView"};
     }
 
     @Override
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity {
                         startActivity(new Intent(MainActivity.this, DensityActivity.class));
                         break;
                     case 10:
-                        startActivity(new Intent(MainActivity.this, DensityActivity.class));
+                        startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
                         break;
                     default:
                 }
